@@ -5,3 +5,5 @@ git clone - clones a repository into a newly created directory
 git push - updates remote refs using local refs, while sending objects necessary to complete the given refs
 
 git commit - stores the current contents of the index in a new commit along with a log message from the user describing the changes
+
+change 3: hello
