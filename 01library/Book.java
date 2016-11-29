@@ -1,7 +1,12 @@
 public class Book{
 
-    String author;
-    String title;
-    String ISBN;
+    private String author;
+    private String title;
+    private String ISBN;
+    
+    public Book(){
+    }
 
+    public Book(creator,name,id){
+    }
     
