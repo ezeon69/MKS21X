@@ -41,4 +41,42 @@ public class Book{
 	return title + ", " +  author + ", " + ISBN;
     }
 }
+
+    abstract Class LibraryBook extends Book implements Comparable<LibraryBook>{
+	
+    private String callNumber;
+
+    public LibraryBook(String creator, String name, String id, String orderNumber){
+	super(creator, name, id);
+	callNumber = orderNumber;
+    }
+
+    public String getCallNumber(){
+	return callNumber;
+    }
+
+    public void setCallNumber(String orderNumber){
+        callNumber = orderNumber;
+    }
+	
+    abstract void checkout(String patron, String due);
+
+    abstract void returned();
+
+    abstract String circulationStatus(){
+
+    }
+    
+    public int compareTo(LibraryBook x){
+	return callNumber.compareTo(x.getCallNumber());
+    }
+
+    public String toString(){
+	return super.toString() + circulationStatus() + callNumber;
+    }
+
+
+}
+
+}
     
