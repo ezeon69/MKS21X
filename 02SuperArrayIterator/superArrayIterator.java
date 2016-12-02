@@ -3,26 +3,23 @@ import java.util.Iterator;
 public class SuperArrayIterator implements Iterator<string>{
     
     private SuperArray data;
-    private int element;
+    private String element;
 
-    public SuperArrayIterator(SuperArray nums, int current){
+    public SuperArrayIterator(SuperArray nums, String current){
 	data = nums;
 	element = current;
     }
 
     public boolean hasNext(){
-	try{
-	    return next();
-	}catch (NoSuchElementException e){
-	    return false;
-		}
-	return true;
+        return current < data.size();
     }
 
-    public int next(){
-	
+    public String next(){
+        element++;
+	return element;
     }
 	
     public void remove(){
 	throw new UnsupportedOperationException();
     }
+}
