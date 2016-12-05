@@ -22,10 +22,6 @@ public class SuperArray implements Iterable<String>{
             data[counter] = ary[counter];
         }
     }
-    
-    //0
-    //constructor make an empty superArray should make size 0, 
-    //but the data capacity 10.
 
     public int size(){
 	return size;
@@ -34,18 +30,6 @@ public class SuperArray implements Iterable<String>{
     public void clear(){
 	size = 0;
     }
-    //1
-    /*add the value n to the next available slot in the superArray.
-     *this will change the size. This function should always work
-     *And will resize the SuperArray if needed.*/
-
-    /* public void add(int element){
-	if (size() == data.length){
-	    grow();
-	}
-	data[size() - 1] = n;
-	size ++;
-	}*/
 
     public boolean add(String element) {
 	add(size,element);
@@ -67,11 +51,6 @@ public class SuperArray implements Iterable<String>{
 	size++;
     }
 	
-
-    //2
-    /**Resize the data, by making a new array, then copying over 	    elements, use this as your data.
-     */
-
     private void grow(){
 	int bigSize;
 	int counter = 0;
@@ -90,42 +69,6 @@ public class SuperArray implements Iterable<String>{
 	data = newArr;
     }
 
-    //3
-    /**format the super array like this :   [ 1, 3, 6, 8, 23, 99, 	    -4, 	5] 
-    *commas between... square bracket start/end and no comma at 	    end.*/
-    /*public String toString(){
-        String total = "[";
-	for(int i = 0; i < size ; i++) {
-	    if(i == size - 1) {
-		return total + data[i] + "]";
-	    }
-	    total += data[i] + ", ";
-	}
-	return total + "]";
-	}  */
-
-
-    //4
-    /**format the super array like this :   [ 1, 8, 23, 99, -4, 	    5, _, _, _, _]   
-    *(capacity is 10, but only 6 are used)
-    *commas between... square bracket start/end and no comma at 	    end.
-    *unused slots should be printed as _ (underscores) */
-    /*public String toStringDebug(){
-	String total = "[";
-	int counter = 0;
-	while (counter < data.length){
-	    if (data[counter] == 0){
-	total = total + " _,";
-	    }
-	    else {
-	total = total + " " + data[counter] + ",";
-	    }
-	    counter ++;
-	}
-	total += "]";
-	return total;
-	}*/
-	
     public boolean isEmpty(){
 	return size == 0;
     }
