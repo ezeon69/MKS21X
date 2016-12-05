@@ -1,24 +1,25 @@
-import java.util.Iterator;
+import java.util.*;
 
-public class SuperArrayIterator implements Iterator<string>{
+public class SuperArrayIterator implements Iterator<String>{
     
     private SuperArray data;
     private int element = 0;
 
-    public SuperArrayIterator(SuperArray art){
+    public SuperArrayIterator(SuperArray ary){
 	data = ary;
     }
 
     public boolean hasNext(){
-        return current < data.size();
+        return element < data.size();
     }
 
     public String next(){
 	if (hasNext()){
-	    String total = ary.get(current);
-	    current++;
+	    String total = data.get(element);
+	    element++;
 	    return total;
-	} else{
+	}
+	else{
 	    throw new NoSuchElementException();
 	}
     }
@@ -27,16 +28,16 @@ public class SuperArrayIterator implements Iterator<string>{
 	throw new UnsupportedOperationException();
     }
 }
-    class SuperArray implements Iterable<String>{
-	private String[] data;
-	private int size;
+class SuperArray implements Iterable<String>{
+    private String[] data;
+    private int size;
     
-	public SuperArray(){
+    public SuperArray(){
 	data = new String[10];
 	size = 0;
-	}
+    }
     
-	public SuperArray(int initialCapacity){
+    public SuperArray(int initialCapacity){
 	if (initialCapacity < 0){
 	    throw new IllegalArgumentException("Specified initial capacity less than 0");
 	}
@@ -60,8 +61,13 @@ public class SuperArrayIterator implements Iterator<string>{
 	size = 0;
     }
 
-    public boolean add(String element) {
-	add(size,element);
+    public boolean add(String element){
+	if (size() == data.length){
+	    grow();
+	}
+
+	data[size()] = element;
+	size++;
 	return true;
     }
     
@@ -81,16 +87,8 @@ public class SuperArrayIterator implements Iterator<string>{
     }
 	
     private void grow(){
-	int bigSize;
 	int counter = 0;
-	if (size == 0){
-
-	bigSize = 2;
-	  }
-	else{
-	   bigSize = size * 2;
-	}
-	String newArr[] = new String[bigSize];
+	String newArr[] = new String[data.length*2];
 	while (counter < newArr.length){
 	 newArr[counter] = data[counter];
 	counter += 1;
@@ -157,5 +155,9 @@ public class SuperArrayIterator implements Iterator<string>{
 	    }
 	}
 	return -1;
-    }  
+    }
+    
+    public Iterator<String> iterator(){
+	return new SuperArrayIterator(this);
+    }
 }
