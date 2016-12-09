@@ -14,16 +14,9 @@ public class Barcode implements Comparable<Barcode>{
 	       _checkDigit = checkSum() % 10;
 	   }
        else{
-	   throw new RuntimeException();
+	   throw new IllegalArgumentException();
        }
    }
-
-   // postcondition: Creates a copy of a bar code.
-   public Barcode clone(){
-       Barcode copy = new Barcode(_zip);
-       return copy;
-   }
-   
    
    // postcondition: computes and returns the check sum for _zip
    private int checkSum(){
