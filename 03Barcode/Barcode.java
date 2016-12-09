@@ -28,13 +28,47 @@ public class Barcode implements Comparable<Barcode>{
        }
        return total;
    }
+   //toCode method
+   public static toCode(String zip){
+       if (!(zip.length() == 5) || !(zip.matches("[0-9]+"))){
+	   throw new IllegalArgumentException();
+       }
+       String total = "|";
+       for (int counter = 0; counter < _zip.length(); counter++) {
+	   char c = _zip.charAt(counter);
+	   switch (c) {
+	   case '0': total += "||:::";
+	       break;	           	    
+	   case '1': total += ":::||";
+	       break;
+	   case '2': total += "::|:|";
+	       break;
+	   case '3': total += "::||:";
+	       break;
+	   case '4': total += ":|::|";
+	       break;
+	   case '5': total += ":|:|:";
+	       break;
+	   case '6': total += ":||::";
+	       break;
+	   case '7': total += "|:::|";
+	       break;
+	   case '8': total += "|::|:";
+	       break;
+	   case '9': total += "|:|::";
+	       break;
+	    default: break;
+	    }
+       }
+       return total + "|";
+   }
    
    //postcondition: format zip + check digit + barcode 
    //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
    public String toString(){
-       String total = _zip + _checkDigit + "  |";
-       for (int i = 0; i < _zip.length(); i++) {
-	   char c = _zip.charAt(i);
+       String total = _zip + _checkDigit + " |";
+       for (int counter = 0; counter < _zip.length(); counter++) {
+	   char c = _zip.charAt(counter);
 	   switch (c) {
 	   case '0': total += "||:::";
 	       break;	           	    
