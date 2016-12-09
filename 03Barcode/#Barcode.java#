@@ -110,6 +110,7 @@ public class Barcode implements Comparable<Barcode>{
 	   }
 	   counter++;
        }//non-barcode characters in code
+       
    }
    // postcondition: compares the zip + checkdigit, in numerical order. 
    public int compareTo(Barcode other){
