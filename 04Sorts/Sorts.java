@@ -19,22 +19,28 @@ public class Sorts{
 		  indexOf = counter2;
 	      }
 	  }
-	  int switch = data[counter];
+	  int select = data[counter];
 	  total[counter] = smallest;
-	  data[indexOf] = switch;
+	  data[indexOf] = select;
       } 
   } 
-<<<<<<< HEAD
     
-    public static void insertionSort(int[] data){  
-	
+    public static void insertionSort(int[] data){
+	int temp = 0;
+	for(int counter = 1; counter < data.length; counter++){
+	    if (data[counter] > data[counter - 1]){
+		counter++;
+	    }
+	    else{
+		temp = data[counter];
+		while (temp <= data[counter]){
+		    data[counter] = data[counter - 1];
+		}
+		data[counter] = temp;
+	    }
+	}
     }
    
-    public static void main (String[] args){
-	int test[] = new int[] {40,30,20,10,70,80,61,42,79,95};
-	selectionSort(test);
-	test.toString();
-    }
-=======
->>>>>>> f23bdce0635f36fbfcc43defd0b025b5ede8b300
+    
+
 }
