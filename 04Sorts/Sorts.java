@@ -24,6 +24,11 @@ public class Sorts{
 	  total[counter] = smallest;
       } 
   } 
+    
+    public static void insertionSort(int[] data){  
+	
+    }
+   
     public static void main (String[] args){
 	int test[] = new int[] {40,30,20,10,70,80,61,42,79,95};
 	selectionSort(test);
