@@ -10,20 +10,21 @@ public class Sorts{
   *@param data  the elements to be sorted.
   */
   public static void selectionSort(int[] data){  
-      int smallest = 0;
-      int total[] = new int[data.length];
-      for(int counter = 0; counter < data.length; counter++){
+      for(int counter = 0; counter < data.length - 1; counter++){
+	  int smallest = data[counter];
+	  int indexOf = counter;
 	  for (int counter2 = 0; counter2 < data.length; counter2++){
-	      if (counter2 == 0){
-		  smallest = data[counter2];
-	      }
 	      if (data[counter2] < smallest){
 		  smallest = data[counter2];
+		  indexOf = counter2;
 	      }
 	  }
+	  int switch = data[counter];
 	  total[counter] = smallest;
+	  data[indexOf] = switch;
       } 
   } 
+<<<<<<< HEAD
     
     public static void insertionSort(int[] data){  
 	
@@ -34,4 +35,6 @@ public class Sorts{
 	selectionSort(test);
 	test.toString();
     }
+=======
+>>>>>>> f23bdce0635f36fbfcc43defd0b025b5ede8b300
 }
