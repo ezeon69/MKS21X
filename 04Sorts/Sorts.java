@@ -10,23 +10,18 @@ public class Sorts{
   *@param data  the elements to be sorted.
   */
   public static void selectionSort(int[] data){  
-      int smallest = 0;
-      int total[] = new int[data.length];
-      for(int counter = 0; counter < data.length; counter++){
+      for(int counter = 0; counter < data.length - 1; counter++){
+	  int smallest = data[counter];
+	  int indexOf = counter;
 	  for (int counter2 = 0; counter2 < data.length; counter2++){
-	      if (counter2 == 0){
-		  smallest = data[counter2];
-	      }
 	      if (data[counter2] < smallest){
 		  smallest = data[counter2];
+		  indexOf = counter2;
 	      }
 	  }
+	  int switch = data[counter];
 	  total[counter] = smallest;
+	  data[indexOf] = switch;
       } 
   } 
-    public static void main (String[] args){
-	int test[] = new int[] {40,30,20,10,70,80,61,42,79,95};
-	selectionSort(test);
-	test.toString();
-    }
 }
