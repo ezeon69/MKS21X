@@ -40,7 +40,21 @@ public class Sorts{
 	    }
 	}
     }
-   
+    public static void bubbleSort(int[] data){
+	int counter = 1;
+	int temp = 0;
+	while (counter <= data.length){
+	    if (data[counter] > data[counter-1]){
+		counter++;
+	    }
+	    else{
+		temp = data[counter];
+		data[counter] = data[counter-1];
+		data[counter-1] = temp;
+		counter ++;
+	    }
+	}
+    }
     
 
 }
