@@ -20,7 +20,7 @@ public class Sorts{
 	      }
 	  }
 	  int select = data[counter];
-	  total[counter] = smallest;
+	  data[counter] = smallest;
 	  data[indexOf] = select;
       } 
   } 
@@ -28,33 +28,25 @@ public class Sorts{
     public static void insertionSort(int[] data){
 	int temp = 0;
 	for(int counter = 1; counter < data.length; counter++){
-	    if (data[counter] > data[counter - 1]){
-		counter++;
+	    temp = data[counter];
+	    int insert = counter;
+	    while (insert > 0 && temp < data[insert-1]){
+		data[insert] = data[insert - 1];
+		insert--;
 	    }
-	    else{
-		temp = data[counter];
-		while (temp <= data[counter]){
-		    data[counter] = data[counter - 1];
-		}
-		data[counter] = temp;
-	    }
+	    data[insert] = temp;
 	}
     }
-    public static void bubbleSort(int[] data){
-	int counter = 1;
-	int temp = 0;
-	while (counter <= data.length){
-	    if (data[counter] > data[counter-1]){
-		counter++;
-	    }
-	    else{
-		temp = data[counter];
-		data[counter] = data[counter-1];
-		data[counter-1] = temp;
-		counter ++;
-	    }
-	}
-    }
-    
 
+    public static void bubbleSort(int[] data){
+        for (int counter = data.length; counter > 0; counter--){
+	    for (int bubble = 1; bubble < counter; bubble++){
+		if (data[bubble] < data[bubble-1]){
+		    int temp = data[bubble-1];
+		    data[bubble-1] = data[bubble];
+		    data[bubble] = temp;	
+		}
+	    }
+	}
+    }
 }
